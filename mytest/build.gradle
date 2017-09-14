@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'//添加
 android {
+    lintOptions{
+        abortOnError false
+    }
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
 
@@ -9,7 +12,6 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -17,20 +19,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    //添加
-    publish {
-        userOrg = 'hss'//bintray.com用户名
-        groupId = 'com.hss'//jcenter上的路径
-        artifactId = 'testtools'//项目名称
-        publishVersion = '1.0.0'//版本号
-        desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
-        website = 'https://github.com'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好
-    }
-    android {
-        lintOptions {
-            abortOnError false
         }
     }
 
@@ -44,4 +32,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+}
+//添加
+publish {
+    userOrg = 'huangshenshen'//bintray.com用户名
+    groupId = 'com.jacksen'//jcenter上的路径
+    artifactId = 'mytest'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
+    website = 'https://github.com'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
